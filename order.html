@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<section class="order" id="order">
+    <h1 class="heading">
+      <span>Order Now</span>
+    </h1>
+    
+    <form>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="pnumber">Phone Number:</label>
+        <input type="number" id=pnumber" name="pnumber" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="food">Food:</label>
+        <select id="food" name="food">
+          <option value="pizza">Pizza</option>
+          <option value="burger">Burger</option>
+          <option value="sushi">Sushi</option>
+        </select>
+      </div>
+      <div class="substitution-tool">
+        <h2>Ingredient Substitution </h2>
+        <label for="ingredient">Enter an Ingredient:</label>
+        <input type="text" id="ingredient" placeholder="e.g., Flour">
+        <button id="substitute-btn">Find Substitutions</button>
+        <div id="substitution-results"></div>
+      </div>
+  
+      <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="comments">Additional Comments:</label>
+        <textarea id="comments" name="comments"></textarea>
+      </div>
+  
+      <input type="submit" value="Submit">
+      
+    </form>
+        
+  </section>
+</body>
+   
+  <style>
+    /*subtitutes*/
+   
+   
+
+.substitution-tool {
+    margin: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+    background-color: rgb(221, 228, 228);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"] {
+    width: 100px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: rgb(177, 133, 133);
+    border: none;
+    cursor: pointer;
+  }
+  
+  #substitution-results {
+    margin-top: 10px;
+  }
+/*subtitutes*/
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header, section, footer {
+  padding: 20px;
+}
+
+header {
+  background-color: #8c2d2d;
+  color: #fff;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+section {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form input, form textarea, form select {
+  width: 100%;
+  padding: 5px;
+}
+
+form small {
+  font-size: 12px;
+  color: #999;
+}
+
+form button {
+  padding: 10px;
+  background-color: #333
+
+
+  </style>
+  <script>
+  
+/*substitution*/
+
+const substitutionBtn = document.getElementById('substitute-btn');
+  const substitutionResults = document.getElementById('substitution-results');
+
+  substitutionBtn.addEventListener('click', () => {
+    const ingredientInput = document.getElementById('ingredient').value;
+    const substitutions = findSubstitutions(ingredientInput);
+    displaySubstitutions(substitutions);
+  });
+
+  function findSubstitutions(ingredient) {
+    // Implement your logic to find substitutions for the given ingredient
+    // You can use an API or a predefined list for substitutions
+    // Return an array of substitution options
+	const substitutions = {
+		Flour: ['Almond flour', 'Coconut flour', 'Oat flour'],
+		Sugar: ['Honey', 'Maple syrup', 'Stevia'],
+		Butter: ['Coconut oil', 'Olive oil', 'Avocado'],
+		Milk: ['Almond milk', 'Soy milk', 'Coconut milk'],
+		Eggs: ['Banana', 'Applesauce', 'Flaxseed meal'],
+		Salt: ['Sea salt', 'Himalayan salt', 'Garlic salt'],
+		Garlic: ['Garlic powder', 'Onion powder', 'Chives'],
+		Onion: ['Shallot', 'Leek', 'Green onion'],
+		Tomato: ['Red bell pepper', 'Canned tomatoes', 'Tomato sauce'],
+    Salt: ['White sa ', 'Canned tomatoes', 'Tomato sauce'],
+	  };
+	
+	  return substitutions[ingredient] || [];
+  }
+
+  function displaySubstitutions(substitutions) {
+    substitutionResults.innerHTML = '';
+    if (substitutions.length > 0) {
+      const resultList = document.createElement('ul');
+      substitutions.forEach((substitution) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = substitution;
+        resultList.appendChild(listItem);
+      });
+      substitutionResults.appendChild(resultList);
+    } else {
+      substitutionResults.textContent = 'No substitutions found.';
+    }
+  }
+/*subtitution*/
+    </script>
+
+  </html>

@@ -1,0 +1,229 @@
+<!--chatbot-->
+<section class="Chatbot" id="Chatbot">
+
+    <div class="chat-box">
+      <div class="header">
+        <h1> Easy to order -  Food chatbot</h1>
+      </div>
+      <div class="chat-area" id="chat-area">
+        <div class="chat-bubble bot">
+          <p>Hello! How can I help you today?</p>
+        </div>
+      </div>
+      <div class="input-area">
+        <input type="text" id="user-input" placeholder="Ask me a question...">
+        <button type="submit" id="submit-btn">Send</button>
+      </div>
+    </div>
+      <!--chatbot--> 
+      
+<style>
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+    background-color: orange;
+}
+
+
+.chat-box{
+	max-width: 500px;
+	margin: 0 auto;
+	background-color: #f5f5f5;
+	box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.2);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.header {
+	background-color:rgba(255, 166, 0, 0.912);
+	color: rgb(39, 33, 33);
+	padding: 10px;
+	text-align: center	;
+    
+}
+
+.chat-area {
+	padding: 10px;
+	height: 500px;
+	overflow-y: scroll;
+    
+}
+
+.chat-bubble {
+	background-color: hsla(50, 33%, 55%, 0.821);
+	border-radius: 15px;
+	padding: 10px;
+	margin: 10px 0;
+	max-width: 60%;
+    font-size: 1rem;
+}
+
+.bot {
+	align-self: flex-start;
+}
+
+.user {
+	align-self: flex-end;
+}
+
+.input-area {
+    font-family: 'Times New Roman', Times, serif;
+	display: flex;
+	background-color:rgba(255, 166, 0, 0.912);
+	padding: 5px;
+    
+
+}
+
+#user-input {
+	flex-grow: 1;
+	padding: 10px;
+	border-radius: 3px;
+	border: none;
+    font-size: 1rem;
+    
+}
+
+#submit-btn {
+	margin-left: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	background-color: #ec640a;
+	color: white;
+	cursor: pointer;
+}
+</style>
+<script>
+
+const faqs = [
+    {
+		question: "1",
+		answer: "1.family<br/>2.single"
+                
+	},
+    {
+		question: "family",
+		answer: "breakfast - Rs.80"
+                
+	},
+	{
+		question: "What is your return policy?",
+		answer: "Our return policy allows customers to return items within 30 days of purchase for a full refund."
+	},
+	{
+		question: "What forms of payment do you accept?",
+		answer: "We accept all major credit cards and PayPal."
+	},
+	{
+		question: "How do I track my order?",
+		answer: "You can track your order by entering your order number on our website."
+	},
+	{
+		question: "Do you offer free shipping?",
+		answer: "Yes, we offer free shipping on orders over $50."
+	}
+	,{
+		question: "hi",
+		answer: "Hey there, what do you like to order ?"
+	},
+	{
+		question:" What is the minimum order amount for delivery?",
+        answer: "The minimum order amount for delivery is $X."
+	},
+	{
+       question:"delivery fee",
+	   answer: "The delivery fee is $X or free for orders above $Y."
+	},
+	{
+       question:" What is the estimated delivery time?",
+       answer:" The estimated delivery time is approximately X minutes."
+   },
+   {
+      question: "Do you offer any discounts or promotions?",
+      answer: "Yes, we have ongoing discounts and promotions. You can check our website or app for the latest offers.",
+   },
+   {
+      question: "Can I customize my order or make special requests?",
+       answer: "Absolutely! We provide options for customization and you can add any special requests in the order notes."
+   },
+{
+     question:" What payment methods do you accept?",
+     answer: "We accept cash on delivery, credit/debit cards, and popular mobile payment apps."
+},
+{
+    question: "Can I track my delivery?",
+    answer:" Yes, you can track your delivery in real-time through our website or mobile app."
+},
+{
+    question: "What if I have food allergies or dietary restrictions?",
+    answer:"Please let us know about your allergies or dietary restrictions when placing the order. We will do our best to accommodate your needs."
+},
+{
+    question: "Is there a loyalty program for frequent customers?",
+    answer: "Yes, we have a loyalty program. You can earn points for each order and redeem them for discounts or free items."
+},
+{
+    question: "What is your refund or cancellation policy?",
+    answer: "Our refund policy allows for cancellations and refunds within X minutes after placing the order. Please contact our customer support for assistance."
+	}
+];
+
+// DOM elements
+const chatArea = document.getElementById("chat-area");
+const userInput = document.getElementById("user-input");
+const submitBtn = document.getElementById("submit-btn");
+
+// Bot response function
+function botResponse(userquestion) {
+	// Search for matching question in FAq list
+	const matchingFAq = faqs.find(faq => faq.question.toLowerCase() === userquestion.toLowerCase());
+
+	// If match found, display answer in chat area
+	if (matchingFAq) {
+		const botBubble = document.createElement("div");
+		botBubble.classList.add("chat-bubble", "bot");
+		botBubble.innerHTML = `<p>${matchingFAq.answer}</p>`;
+		chatArea.appendChild(botBubble);
+	} else {
+		// If no match found, display error message
+		const botBubble = document.createElement("div");
+		botBubble.classList.add("chat-bubble", "bot");
+		botBubble.innerHTML = "<p>I'm sorry, I don't understand. Please try asking another question.</p>";
+		chatArea.appendChild(botBubble);
+	}
+	
+	// Scroll to bottom of chat area
+	chatArea.scrollTop = chatArea.scrollHeight;
+}
+
+// User input function
+function handleUserInput() {
+	// Get user input value
+	const userquestion = userInput.value.trim();
+
+	// If user input is not empty, display in chat area and get bot response
+	if (userquestion) {
+		const userBubble = document.createElement("div");
+		userBubble.classList.add("chat-bubble", "user");
+		userBubble.innerHTML = `<p>${userquestion}</p>`;
+		chatArea.appendChild(userBubble);
+		botResponse(userquestion);
+	}
+
+	// Reset user input value
+	userInput.value = "";
+}
+
+// Event listener for submit button
+submitBtn.addEventListener("click", handleUserInput);
+
+// Event listener for enter key on user input
+userInput.addEventListener("keydown", event => {
+	if (event.key === "Enter") {
+		event.preventDefault();
+		handleUserInput();
+	}
+});
+
+</script>

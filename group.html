@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Group Ordering</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>Group Ordering</h1>
+  
+  <div id="item-list">
+    <h2>Menu</h2>
+    <ul>
+      <li>
+        <span class="item-name">Pizza</span>
+        <button class="add-button" onclick="addItem('Pizza')">Add</button>
+      </li>
+      <li>
+        <span class="item-name">Burger</span>
+        <button class="add-button" onclick="addItem('Burger')">Add</button>
+      </li>
+      <!-- Add more menu items as needed -->
+    </ul>
+  </div>
+  
+  <div id="cart">
+    <h2>Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="total">Total: $0</p>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  #item-list {
+    float: left;
+    width: 50%;
+  }
+  
+  #cart {
+    float: right;
+    width: 50%;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  .add-button {
+    float: right;
+  }
+  
+  #total {
+    font-weight: bold;
+  }
+</style>  
+<script>
+let cart = [];
+let total = 0;
+
+function addItem(itemName) {
+  const item = {
+    name: itemName,
+    price: calculateItemPrice(itemName)
+  };
+  
+  cart.push(item);
+  total += item.price;
+  
+  updateCart();
+}
+
+function calculateItemPrice(itemName) {
+  // Add your logic here to calculate the price based on the item name
+  // This is just a placeholder example
+  if (itemName === 'Pizza') {
+    return 10;
+  } else if (itemName === 'Burger') {
+    return 8;
+  } else {
+    return 0;
+  }
+}
+
+function updateCart() {
+  const cartItems = document.getElementById('cart-items');
+  const totalElement = document.getElementById('total');
+  
+  cartItems.innerHTML = '';
+  
+  cart.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item.name + ' - $' + item.price;
+    cartItems.appendChild(li);
+  });
+  
+  totalElement.textContent = 'Total: $' + total;
+}
+</script>

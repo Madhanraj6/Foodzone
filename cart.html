@@ -1,0 +1,59 @@
+
+<div class="product-card">
+    <h3>Product Name</h3>
+    <p class="price">250</p>
+    <button class="add-to-cart">Add to Cart</button>
+    <button class="add-to-favorites">Add to Favorites</button>
+  </div>
+
+  <style>
+  .product-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .price {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .add-to-cart,
+  .add-to-favorites {
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+  <script>
+  .add-to-cart:hover,
+  .add-to-favorites:hover {
+    background-color: #aaa;
+  }
+  // Add to Favorites functionality
+  var addToFavoritesButtons = document.getElementsByClassName("add-to-favorites");
+  
+  for (var i = 0; i < addToFavoritesButtons.length; i++) {
+    addToFavoritesButtons[i].addEventListener("click", addToFavorites);
+  }
+  
+  function addToFavorites(event) {
+    var product = event.target.parentNode;
+    var productName = product.getElementsByTagName("h3")[0].innerText;
+  
+    // Add your logic here to add the product to favorites
+    var favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    favorites.push(productName);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  
+    // Update UI or perform additional actions as needed
+    event.target.disabled = true;
+    event.target.innerText = "Added to Favorites";
+  }
+
+</script>
+    

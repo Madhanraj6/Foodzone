@@ -1,0 +1,111 @@
+<body>
+<div class="donate-food-section">
+    <h2>Donate Food</h2>
+    <p style="background-color: #FFFFFF;">Help us fight hunger by donating food items.<br/>
+        Celebrate ur Birthdays by making others <br/>happy with their whole hearted Blessing!!
+        Or if you ordered ur food but if is not needed at that time or not able to cancel the order u can give it to the people who has real need of food!! 
+    </p>
+    <form action="https://example-donation-platform.com/donate-food" method="post" enctype="multipart/form-data">
+      <label for="food-item">Food Item:</label>
+      <input type="text" id="food-item" name="food-item" required>
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" min="1" step="1" required>
+      <label for="pickup-date">Pickup Date:</label>
+      <input type="date" id="pickup-date" name="pickup-date" required>
+      <label for="pickup-time">Pickup Time:</label>
+      <input type="time" id="pickup-time" name="pickup-time" required>
+      <label for="contact-person">Contact Person:</label>
+      <input type="text" id="contact-person" name="contact-person" required>
+      <label for="contact-email">Contact Email:</label>
+      <input type="email" id="contact-email" name="contact-email" required>
+      <label for="contact-phone">Contact Phone:</label>
+      <input type="tel" id="contact-phone" name="contact-phone" required>
+      <label for="additional-notes">Additional Notes:</label>
+      <textarea id="additional-notes" name="additional-notes" rows="4"></textarea>
+      <button type="submit">Donate Now</button>
+    </form>
+
+  </div>
+</body>
+  
+  <style>
+     *{
+  margin: 0;
+  padding: 0;
+  border-radius: 0cap;
+  
+ 
+}
+.body{
+    background:url(../images/bg.jpg)no-repeat ;
+    
+}
+  .donate-food-section {
+   
+    background-color: #cac2b3;
+    padding: 20px;
+    text-align: center;
+    color: #4f4f3e;
+   
+    border: #0b0b08;
+  }
+  
+  .donate-food-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .donate-food-section p {
+    font-size: 16px;
+    margin-bottom: 10px;
+   
+   
+    font-weight: bolder;
+  }
+  
+  .donate-food-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .donate-food-section label {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .donate-food-section input[type="text"],
+  .donate-food-section input[type="number"],
+  .donate-food-section input[type="date"],
+  .donate-food-section input[type="time"],
+  .donate-food-section input[type="email"],
+  .donate-food-section input[type="tel"],
+  .donate-food-section textarea {
+    width: 300px;
+    padding: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .donate-food-section textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  .donate-food-section button {
+    background-color: #FFFFFF;
+    color: #FFA500;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .donate-food-section button:hover {
+    background-color: #FFD700;
+  }
+  
+  
+  
+  </style>

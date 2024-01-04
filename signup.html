@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    
+    .header44 {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .title44 {
+      font-weight: 400;
+      letter-spacing: 1.5px;
+    }
+
+    .container44 {
+      height: 600px;
+      width: 500px;
+      background-color: white;
+      box-shadow: 8px 8px 20px rgb(128, 128, 128);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn44 {
+      height: 60px;
+      width: 300px;
+      margin: 20px auto;
+      box-shadow: 10px 10px 30px rgb(254, 215, 188);
+      border-radius: 50px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .login44,
+    .signup44 {
+      font-size: 22px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .slider44 {
+      height: 60px;
+      width: 150px;
+      border-radius: 50px;
+      background-image: linear-gradient(to right,
+          rgb(110, 236, 255),
+          rgb(63, 121, 208));
+      position: absolute;
+      top: 20px;
+      left: 100px;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .moveslider44 {
+      left: 250px;
+    }
+
+    .form-section {
+      height: 500px;
+      width: 1000px;
+      padding: 20px 0;
+      display: flex;
+      position: relative;
+      transition: all 0.5s ease-in-out;
+      left: 0px;
+    }
+
+    .form-section-move {
+      left: -500px;
+    }
+
+    .login44-box,
+    .signup44-box {
+      height: 100%;
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0px 40px;
+    }
+
+    .login44-box {
+      gap: 20px;
+    }
+
+    .signup44-box {
+      gap: 30px;
+    }
+
+    .ele44 {
+      height: 60px;
+      width: 400px;
+      outline: none;
+      border: none;
+      color: rgb(77, 77, 77);
+      background-color: rgb(240, 240, 240);
+      border-radius: 50px;
+      padding-left: 30px;
+      font-size: 18px;
+    }
+
+    .clkbtn44 {
+      height: 60px;
+      width: 150px;
+      border-radius: 50px;
+      background-image: linear-gradient(to right,
+          rgb(110, 236, 255),
+          rgb(63, 121, 208));
+      font-size: 22px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* For Responsiveness of the page */
+    @media screen and (max-width: 650px) {
+      .container44 {
+        height: 600px;
+        width: 300px;
+      }
+
+      .title44 {
+        font-size: 15px;
+      }
+
+      .btn44 {
+        height: 50px;
+        width: 200px;
+        margin: 20px auto;
+      }
+
+      .login44,
+      .signup44 {
+        font-size: 19px;
+      }
+
+      .slider44 {
+        height: 50px;
+        width: 100px;
+        left: 50px;
+      }
+
+      .moveslider44 {
+        left: 150px;
+      }
+
+      .form-section {
+        height: 500px;
+        width: 600px;
+      }
+
+      .form-section-move {
+        left: -300px;
+      }
+
+      .login44-box,
+      .signup44-box {
+        height: 100%;
+        width: 300px;
+      }
+
+      .ele44 {
+        height: 50px;
+        width: 250px;
+        font-size: 15px;
+      }
+
+      .clkbtn44 {
+        height: 50px;
+        width: 130px;
+        font-size: 19px;
+      }
+    }
+
+    @media screen and (max-width: 320px) {
+      .container44 {
+        height: 600px;
+        width: 250px;
+      }
+
+      .heading44 {
+        font-size: 30px;
+      }
+
+      .title44 {
+        font-size: 10px;
+      }
+
+      .btn44 {
+        height: 50px;
+        width: 200px;
+        margin: 20px auto;
+      }
+
+      .login44,
+      .signup44 {
+        font-size: 19px;
+      }
+
+      .slider44 {
+        height: 50px;
+        width: 100px;
+        left: 27px;
+      }
+
+      .moveslider44 {
+        left: 127px;
+      }
+
+      .form-section {
+        height: 500px;
+        width: 500px;
+      }
+
+      .form-section-move {
+        left: -250px;
+      }
+
+      .login44-box,
+      .signup44-box {
+        height: 100%;
+        width: 250px;
+      }
+
+      .ele44 {
+        height: 50px;
+        width: 220px;
+        font-size: 15px;
+      }
+
+      .clkbtn44 {
+        height: 50px;
+        width: 130px;
+        font-size: 19px;
+      }
+    }
+  </style>
+
+    <title>Signup</title>
+
+</head>
+<body>
+  <div class="left-form">
+    <header>
+      <h3 class="title45">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 𝐇𝐨𝐬𝐩𝐢𝐭𝐚𝐥 𝐋𝐨𝐠𝐢𝐧 & 𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐭𝐢𝐨𝐧</h3>
+    </header> <br>
+  <div class="container44">
+    <div class="slider44"></div>
+    <div class="btn44">
+      <button class="login44">Login</button>
+      <button class="signup44">Signup</button>
+    </div>
+    <!-- Form section that contains the login and signup forms -->
+    <div class="form-section">
+      <!-- Login form -->
+      <form action="" method="get">
+        <div class="login44-box">
+          <input type="text" name="username" class="email ele44" placeholder="Enter your name">
+          <input type="password" class="password ele44" name="password" placeholder="Password">
+          <button class="clkbtn44">Login</button>
+        </div>
+      </form>
+      <!-- Signup form -->
+      <form action="" method="post">
+        <div class="signup44-box">
+          <input type="text" name="username" class="name ele44" placeholder="Enter your name">
+          <input type="email" name="email" class="email ele44" placeholder="youremail@example.com">
+          <input type="password" name="password" class="password ele44" placeholder="Password">
+          <button class="clkbtn44">Signup</button>
+        </div>
+      </form>
+    </div>
+    </div>
+    </div>
+    <script>
+      let signup = document.querySelector(".signup44");
+      let login = document.querySelector(".login44");
+      let slider = document.querySelector(".slider44");
+      let formSection = document.querySelector(".form-section");
+
+      signup.addEventListener("click", () => {
+        slider.classList.add("moveslider44");
+        formSection.classList.add("form-section-move");
+      });
+
+      login.addEventListener("click", () => {
+        slider.classList.remove("moveslider44");
+        formSection.classList.remove("form-section-move");
+      });
+    </script>
+</div>
+  
+</body>
+</html>
